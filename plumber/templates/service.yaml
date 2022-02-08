@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "plumber.fullname" . }}
+  labels:
+    {{- include "plumber.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service_grpc_api.type }}
+  ports:
+    - port: {{ .Values.service_grpc_api.port }}
+      targetPort: {{ .Values.service_grpc_api.port }}
+      protocol: TCP
+      name: grpc-api
+  type: {{ .Values.service_http_api.type }}
+  ports:
+    - port: {{ .Values.service_http_api.port }}
+      targetPort: {{ .Values.service_http_api.port }}
+      protocol: TCP
+      name: http-api
+  selector:
+    {{- include "plumber.selectorLabels" . | nindent 4 }}
