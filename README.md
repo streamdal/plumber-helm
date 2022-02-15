@@ -13,7 +13,7 @@ helm install --debug ./plumber --generate-name
 ```
 helm repo add batch https://batchcorp.github.io/plumber-helm
 helm repo update
-helm install plumber batch/plumber
+helm install plumber batch/plumber-cluster
 
 ```
 
