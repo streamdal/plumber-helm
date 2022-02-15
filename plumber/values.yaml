@@ -6,9 +6,9 @@ replicaCount: 3
 
 image:
   repository: batchcorp/plumber
-  pullPolicy: IfNotPresent
+  pullPolicy: Never
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "nats"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -82,14 +82,15 @@ tolerations: []
 
 affinity: {}
 
+
+relay_type: kafka
+
 ### ENVS
-plumber_relay_token: "changme"
-plumber_relay_kafka_address: "kafka.server.com:9092"
-plumber_relay_kafka_topic: "new-order"
-plumber_relay_kafka_group_id: "plumber"
-
-
-
+env:
+  PLUMBER_SERVER_CLUSTER_ID: "7EB6C7FB-9053-41B4-B456-78E64CF9D393"
+  PLUMBER_SERVER_NATS_URL: "nats://plumber-nats.default.svc.cluster.local:4222" 
+  PLUMBER_SERVER_USE_TLS: "false"
+  PLUMBER_SERVER_ENABLE_CLUSTER: "true"
    
 ###############################
 #                             #
@@ -257,7 +258,7 @@ nats:
   #        name: log-config
 
   jetstream:
-    enabled: false
+    enabled: true
 
     # Jetstream Domain
     domain:
@@ -329,7 +330,6 @@ mqtt:
   enabled: false
   ackWait: 1m
   maxAckPending: 100
-
   #######################
   #                     #
   #  TLS Configuration  #

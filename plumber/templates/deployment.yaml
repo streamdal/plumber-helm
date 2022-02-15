@@ -33,18 +33,18 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["/plumber-linux", "relay", "kafka"]
+          command: ["/plumber-linux", "server"]
           ports:
             - containerPort: 9191
-          env:
-            - name: PLUMBER_RELAY_TOKEN
-              value: {{ .Values.plumber_relay_token }}
-            - name: PLUMBER_RELAY_KAFKA_ADDRESS
-              value: {{ .Values.plumber_relay_kafka_address }}
-            - name: PLUMBER_RELAY_KAFKA_TOPIC
-              value: {{ .Values.plumber_relay_kafka_topic }}
-            - name: PLUMBER_RELAY_KAFKA_GROUP_ID
-              value: {{ .Values.plumber_relay_kafka_group_id }}
+          env: 
+          {{- range $key, $vaule := .Values.env }}
+            - name: {{ $key }}
+              value: {{ $vaule | quote}}
+          {{- end }}
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

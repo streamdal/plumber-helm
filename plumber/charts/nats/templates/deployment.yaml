@@ -1,6 +1,6 @@
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "nats.fullname" . }}
   namespace: {{ include "nats.namespace" . }}
@@ -21,6 +21,8 @@ spec:
   {{- else }}
   replicas: 1
   {{- end }}
+  serviceName: {{ include "nats.fullname" . }}
+  podManagementPolicy: {{ .Values.podManagementPolicy }}
 
   template:
     metadata:
