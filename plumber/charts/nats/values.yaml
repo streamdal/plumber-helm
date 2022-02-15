@@ -164,7 +164,7 @@ nats:
   #        name: log-config
 
   jetstream:
-    enabled: false
+    enabled: true
 
     # Jetstream Domain
     domain:
@@ -198,7 +198,7 @@ nats:
     #                          #
     ############################
     fileStorage:
-      enabled: false
+      enabled: true
       storageDirectory: /data
 
       # Set for use with existing PVC
@@ -207,7 +207,7 @@ nats:
 
       # Use below block to create new persistent volume
       # only used if existingClaim is not specified
-      size: 1Gi
+      size: 5Gi
       # storageClassName: ""
       accessModes:
         - ReadWriteOnce
