@@ -8,7 +8,7 @@ image:
   repository: batchcorp/plumber
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "v1.4.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -40,9 +40,6 @@ service_grpc_api:
   type: ClusterIP
   port: 9090
 
-service_http_api:
-  type: ClusterIP
-  port: 9091
 
 ingress:
   enabled: false

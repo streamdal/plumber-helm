@@ -24,10 +24,16 @@ helm install -f values.yaml plumber batch/plumber-cluster
 helm repo add batch https://batchcorp.github.io/plumber-helm
 helm repo update
 helm show values batch/plumber-standalone > values.yaml
-helm install -f values.yaml plumber-standalone batch/plumber-standalone
+helm install -f values.yaml plumber batch/plumber-standalone
 ```
 
-### Connect to plumber server
+### Connect to plumber server standalone 
 ```
-kubectl port-forward service/plumber 9091:9091
+kubectl port-forward service/plumber-plumber-standalone 9090:9090
+```
+### Connect to plumber server cluster
+
+```
+kubectl --namespace default port-forward svc/plumber-plumber-cluster 9090:9090
+
 ```
