@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  plumber:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-02-14T19:26:58.449561-05:00"
+    description: A Helm chart for Kubernetes
+    digest: ab8bf699b7e2be2af2b2af0deaa491d1f11306b58f9f61a7055a6b7da36d4175
+    name: plumber
+    type: application
+    urls:
+    - https://batchcorp.github.io/plumber-helm/plumber-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-02-14T19:26:58.438924-05:00"
