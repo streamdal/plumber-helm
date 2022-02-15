@@ -3,9 +3,9 @@ entries:
   plumber-cluster:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-15T15:04:32.84123-05:00"
+    created: "2022-02-15T17:54:58.177254-05:00"
     description: A Helm chart for Kubernetes
-    digest: 0c296c222aead3601463644857746526d707fa9ca516a4fa217bc0555f5a7bdc
+    digest: 3b31dcfb10ec3e26cd3326f8a052179de86ce3c195e94db0932c2b26cbfec297
     name: plumber-cluster
     type: application
     urls:
@@ -14,12 +14,12 @@ entries:
   plumber-standalone:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-15T15:04:32.842211-05:00"
+    created: "2022-02-15T17:54:58.177994-05:00"
     description: A Helm chart for Kubernetes
-    digest: 7293530ec87b445d964562d5a43259107d34086806de3ba2d64b37561dba4262
+    digest: a41872680493b703502799190fa32402dee14ebbe6dfc0a155de68a60991a5e0
     name: plumber-standalone
     type: application
     urls:
     - https://batchcorp.github.io/plumber-helm/plumber-standalone-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-15T15:04:32.835822-05:00"
+generated: "2022-02-15T17:54:58.172944-05:00"
