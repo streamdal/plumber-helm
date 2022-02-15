@@ -13,7 +13,8 @@ helm install --debug ./plumber --generate-name
 ```
 helm repo add batch https://batchcorp.github.io/plumber-helm
 helm repo update
-helm install plumber batch/plumber-cluster
+helm show values batch/plumber-cluster > values.yaml
+helm install -f values.yaml plumber batch/plumber-cluster
 
 ```
 
@@ -22,7 +23,8 @@ helm install plumber batch/plumber-cluster
 ```
 helm repo add batch https://batchcorp.github.io/plumber-helm
 helm repo update
-helm install plumber-standalone batch/plumber-standalone
+helm show values batch/plumber-standalone > values.yaml
+helm install -f values.yaml plumber-standalone batch/plumber-standalone
 ```
 
 ### Connect to plumber server
