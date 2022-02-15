@@ -11,11 +11,5 @@ spec:
       targetPort: {{ .Values.service_grpc_api.port }}
       protocol: TCP
       name: grpc-api
-  type: {{ .Values.service_http_api.type }}
-  ports:
-    - port: {{ .Values.service_http_api.port }}
-      targetPort: {{ .Values.service_http_api.port }}
-      protocol: TCP
-      name: http-api
   selector:
     {{- include "plumber.selectorLabels" . | nindent 4 }}

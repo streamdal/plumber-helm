@@ -35,7 +35,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/plumber-linux", "server"]
           ports:
-            - containerPort: 9191
+            - containerPort: 9090
           env: 
           {{- range $key, $vaule := .Values.env }}
             - name: {{ $key }}
