@@ -1,0 +1,56 @@
+name: Plumber Release Workflow
+
+on:
+  repository_dispatch:
+    types: [trigger-plumber-helm-workflow]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Update Plumber Cluster Version
+        uses: cuchi/jinja2-action@v1.2.0
+        with:
+          template: templates/cluster/values.yaml.j2
+          output_file: plumber-cluster/values.yaml
+          strict: true
+          variables: |
+            tag=${{ github.event.client_payload.input }}
+      - name: Update Plumber Standalone Version
+        uses: cuchi/jinja2-action@v1.2.0
+        with:
+          template: templates/standalone/values.yaml.j2
+          output_file: plumber-cluster/values.yaml
+          strict: true
+          variables: |
+            tag=${{ github.event.client_payload.input }}
+      - name: Package Plumber Cluster Helm chart
+        uses: helm/chart-releaser-action@v1.3.1
+        with:
+          chart_path: plumber-cluster/
+          release_name: plumber-cluster
+          chart_version: ${{ github.event.client_payload.input }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Package Plumber Standalone Helm chart
+        uses: helm/chart-releaser-action@v1.3.1
+        with:
+          chart_path: plumber-standalone/
+          release_name: plumber-standalone
+          chart_version: ${{ github.event.client_payload.input }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Update Helm repository index
+        uses: helm/chart-releaser-action@v1.3.1
+        with:
+          helm_command: repo index --url https://batchcorp.github.io/plumber-helm .
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          chart_path: .
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Plumber Helm chart with new version
