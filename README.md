@@ -1,8 +1,8 @@
 
 ### Test Run
 ```
-helm install --dry-run --debug ./plumber --generate-name
-helm install --debug ./plumber --generate-name
+helm install --dry-run --debug ./plumber-cluster --generate-name
+helm install --debug ./plumber-cluster --generate-name
 ```
 
 ### Deploy from repo
