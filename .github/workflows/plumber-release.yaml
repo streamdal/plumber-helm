@@ -14,7 +14,7 @@ jobs:
       - name: Update Plumber Cluster Version
         uses: cuchi/jinja2-action@v1.2.0
         with:
-          template: templates/cluster/values.yaml.j2
+          template: .github/templates/cluster/values.yaml.j2
           output_file: plumber-cluster/values.yaml
           strict: true
           variables: |
@@ -22,7 +22,7 @@ jobs:
       - name: Update Plumber Standalone Version
         uses: cuchi/jinja2-action@v1.2.0
         with:
-          template: templates/standalone/values.yaml.j2
+          template: .github/templates/standalone/values.yaml.j2
           output_file: plumber-cluster/values.yaml
           strict: true
           variables: |
