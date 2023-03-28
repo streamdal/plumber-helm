@@ -28,7 +28,7 @@ jobs:
           variables: |
             tag=${{ github.event.client_payload.input }}
       - name: Package Plumber Cluster Helm chart
-        uses: helm/chart-releaser-action@v1.3.1
+        uses: helm/chart-releaser-action@v1.5.0
         with:
           chart_path: plumber-cluster/
           release_name: plumber-cluster
@@ -36,7 +36,7 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Package Plumber Standalone Helm chart
-        uses: helm/chart-releaser-action@v1.3.1
+        uses: helm/chart-releaser-action@v1.5.0
         with:
           chart_path: plumber-standalone/
           release_name: plumber-standalone
@@ -44,7 +44,7 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Update Helm repository index
-        uses: helm/chart-releaser-action@v1.3.1
+        uses: helm/chart-releaser-action@v1.5.0
         with:
           helm_command: repo index --url https://batchcorp.github.io/plumber-helm .
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
@@ -53,4 +53,4 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update Plumber Helm chart with new version
+          commit_message: Update Plumber Helm chart to ${{ github.event.client_payload.input }}
