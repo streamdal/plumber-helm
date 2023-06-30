@@ -5,9 +5,10 @@
 replicaCount: 3
 
 image:
-  repository: streamdal/plumber:wasm
-  pullPolicy: IfNotPresent
+  repository: streamdal/plumber
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
+  tag: wasmbeta
   #tag: "v2.1.3"
 
 imagePullSecrets: []
@@ -38,10 +39,11 @@ securityContext: {}
 
 service_grpc_api:
   type: ClusterIP
-  port: 9090
+  httpPort: 9191
+  grpcPort: 9090
 
 ingress:
-  enabled: true
+  enabled: false
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP
     cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -54,26 +56,9 @@ ingress:
     - secretName: plumber-wasm-cert
       hosts:
         - plumber-wasm.dev.streamdal.com
-#ingress:
-#  enabled: false
-#  annotations: 
-#    nginx.ingress.kubernetes.io/backend-protocol: HTTP
-#    cert-manager.io/cluster-issuer: "letsencrypt-production"
-#    # kubernetes.io/ingress.class: nginx
-#    # kubernetes.io/tls-acme: "true"
-#  hosts:
-#    - host: plumber-wasm.dev.streamdal.com
-#      paths: []
-#  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-command: ["/plumber-linux", "server"]
+
+command: ["/plumber-linux", "server", "--debug"]
 resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
@@ -94,13 +79,13 @@ tolerations: []
 
 affinity: {}
 
-
 relay_type: kafka
 
 ### ENVS
 env:
   PLUMBER_SERVER_CLUSTER_ID: "7EB6C7FB-9053-41B4-B456-78E64CF9D393"
-  PLUMBER_SERVER_NATS_URL: "nats://plumber-wasm-ha.default.svc.cluster.local:4222" 
+  PLUMBER_SERVER_NATS_URL: "nats://plumber-wasm-ha-nats.default.svc.cluster.local:4222"
   PLUMBER_SERVER_USE_TLS: "false"
   PLUMBER_SERVER_ENABLE_CLUSTER: "true"
-   
+  PLUMBER_GRPC_COLLECTOR_INSECURE: "true"
+  PLUMBER_GRPC_COLLECTOR_ADDRESS: "grpc-collector.streamdal.com:9000"

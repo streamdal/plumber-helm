@@ -37,3 +37,10 @@ kubectl port-forward service/plumber-plumber-standalone 9090:9090
 kubectl --namespace default port-forward svc/plumber-plumber-cluster 9090:9090
 
 ```
+
+##### WASM Beta
+
+```
+helm install -f wasm-beta-values.yaml plumber-wasm-ha ./plumber-cluster
+kubectl port-forward svc/plumber-wasm-ha-plumber-cluster 9191:9191
+```

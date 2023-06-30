@@ -7,9 +7,14 @@ metadata:
 spec:
   type: {{ .Values.service_grpc_api.type }}
   ports:
-    - port: {{ .Values.service_grpc_api.port }}
-      targetPort: {{ .Values.service_grpc_api.port }}
+    - name: http-api
+      port: {{ .Values.service_grpc_api.httpPort }}
+      targetPort: {{ .Values.service_grpc_api.httpPort }}
       protocol: TCP
-      name: grpc-api
+    - name: grpc-api
+      port: {{ .Values.service_grpc_api.grpcPort }}
+      targetPort: {{ .Values.service_grpc_api.grpcPort }}
+      protocol: TCP
   selector:
     {{- include "plumber.selectorLabels" . | nindent 4 }}
+
