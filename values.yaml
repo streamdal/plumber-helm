@@ -2,13 +2,13 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
+replicaCount: 3
 
 image:
   repository: batchcorp/plumber
-  pullPolicy: "IfNotPresent"
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v2.6.0"
+  tag: "v2.1.3"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -40,9 +40,6 @@ service_grpc_api:
   type: ClusterIP
   port: 9090
 
-service_http_api:
-  type: ClusterIP
-  port: 9091
 
 ingress:
   enabled: false
@@ -87,4 +84,9 @@ relay_type: kafka
 
 ### ENVS
 env:
-  PLUMBER_SERVER_ENABLE_CLUSTER: "false"
+  PLUMBER_SERVER_CLUSTER_ID: "7EB6C7FB-9053-41B4-B456-78E64CF9D393"
+  PLUMBER_SERVER_NATS_URL: "nats://plumber-nats.default.svc.cluster.local:4222" 
+  PLUMBER_SERVER_USE_TLS: "false"
+  PLUMBER_SERVER_ENABLE_CLUSTER: "true"
+   
+
