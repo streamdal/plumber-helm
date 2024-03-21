@@ -100,7 +100,13 @@ nats:
   # This is helpful if you are updating from Chart version <=7.4
   selectorLabels: {}
 
-  resources: {}
+  resources:
+    limits:
+      cpu: "1"
+      memory: 1Gi
+    requests:
+      cpu: "0.5"
+      memory: 512Mi
 
   client:
     port: 4222
@@ -494,7 +500,7 @@ reloader:
 
 # Prometheus NATS Exporter configuration.
 exporter:
-  enabled: true
+  enabled: false
   image: natsio/prometheus-nats-exporter:0.9.1
   pullPolicy: IfNotPresent
   securityContext: {}
