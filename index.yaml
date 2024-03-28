@@ -2,8 +2,18 @@ apiVersion: v1
 entries:
   plumber-cluster:
   - apiVersion: v2
+    appVersion: 2.6.1
+    created: "2024-03-28T16:30:18.788039-04:00"
+    description: A Helm chart for Kubernetes
+    digest: a90c30396cffc8dbdfec3eda5b0cfe4d414cf22d913e4cf95173151267e5cc0e
+    name: plumber-cluster
+    type: application
+    urls:
+    - plumber-cluster-3.0.0.tgz
+    version: 3.0.0
+  - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.504303-04:00"
+    created: "2024-03-28T16:30:18.785649-04:00"
     description: A Helm chart for Kubernetes
     digest: e6dc8aa1eb2f0eb59bacaad24371d66a4fed521ae80acc027962b51cc3976e49
     name: plumber-cluster
@@ -13,7 +23,7 @@ entries:
     version: 2.2.0
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.502632-04:00"
+    created: "2024-03-28T16:30:18.784465-04:00"
     description: A Helm chart for Kubernetes
     digest: 189d73af0ada083a50d661659f0b6ae9d1912f8bb990322527df51692ee48987
     name: plumber-cluster
@@ -23,7 +33,7 @@ entries:
     version: 2.1.9
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.500776-04:00"
+    created: "2024-03-28T16:30:18.783168-04:00"
     description: A Helm chart for Kubernetes
     digest: 8926abc78a9064bb749d4527c1fc92255cc8a4e34fce1a53027cd6d9e909206e
     name: plumber-cluster
@@ -33,7 +43,7 @@ entries:
     version: 2.1.8
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.498966-04:00"
+    created: "2024-03-28T16:30:18.781736-04:00"
     description: A Helm chart for Kubernetes
     digest: cb4bb10046b68d5ba9fcb8a2d05808dac416838e9f6e0a8dc5008ed048786771
     name: plumber-cluster
@@ -43,7 +53,7 @@ entries:
     version: 2.1.7
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.497387-04:00"
+    created: "2024-03-28T16:30:18.7805-04:00"
     description: A Helm chart for Kubernetes
     digest: 0bfe66858c701ee6c011a0d4e0ee3ed72f22c1f44e3e5fc0ba07aed41a5021ff
     name: plumber-cluster
@@ -53,7 +63,7 @@ entries:
     version: 2.1.6
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.495459-04:00"
+    created: "2024-03-28T16:30:18.778602-04:00"
     description: A Helm chart for Kubernetes
     digest: 4da8b59b6dd2fb182bf901007c73e8b530d763005122c84698a1c0d176a421f7
     name: plumber-cluster
@@ -63,7 +73,7 @@ entries:
     version: 2.1.5
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.492946-04:00"
+    created: "2024-03-28T16:30:18.777332-04:00"
     description: A Helm chart for Kubernetes
     digest: c2329d1c84bac1ec0dae5eb8a434bda51e5fa6e74fe0cb6dc9cb62b5ab9cde69
     name: plumber-cluster
@@ -73,7 +83,7 @@ entries:
     version: 2.1.4
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.491042-04:00"
+    created: "2024-03-28T16:30:18.775764-04:00"
     description: A Helm chart for Kubernetes
     digest: 77a39b04a33e0ad990362ac2a8dfaefb955761793c5f135f3733e404fe82eb20
     name: plumber-cluster
@@ -83,7 +93,7 @@ entries:
     version: 2.1.3
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.489028-04:00"
+    created: "2024-03-28T16:30:18.774386-04:00"
     description: A Helm chart for Kubernetes
     digest: 94f9523133587d8d5456d6285539e89d7e3fa23a41a7421f7420045327307a6f
     name: plumber-cluster
@@ -93,7 +103,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-03-26T16:53:48.487024-04:00"
+    created: "2024-03-28T16:30:18.773077-04:00"
     description: A Helm chart for Kubernetes
     digest: c564bd9e5230d1b4e2c73468e9a4095643a270af54386a10522234aad65e484c
     name: plumber-cluster
@@ -104,9 +114,9 @@ entries:
   plumber-standalone:
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.50674-04:00"
+    created: "2024-03-28T16:30:18.789895-04:00"
     description: A Helm chart for Kubernetes
-    digest: 628769305884cd57a366ec02904733c0b1875f8587a0e04ce6d7a3b97fcec4fa
+    digest: 51875bef0064ad18c422129809a44007d08627aa3f012f636331bdf91cc864dc
     name: plumber-standalone
     type: application
     urls:
@@ -114,7 +124,7 @@ entries:
     version: 2.1.5
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.506408-04:00"
+    created: "2024-03-28T16:30:18.78959-04:00"
     description: A Helm chart for Kubernetes
     digest: 83cfae7e89f8ff5ef23571dc470c5630a16833a04051e9af54d38f589e699c59
     name: plumber-standalone
@@ -124,7 +134,7 @@ entries:
     version: 2.1.4
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.50591-04:00"
+    created: "2024-03-28T16:30:18.78925-04:00"
     description: A Helm chart for Kubernetes
     digest: dc1a29c0a2de3d5e4bd458b19a9e3c6cb572094f638d7ff9faecbd3747d93875
     name: plumber-standalone
@@ -134,7 +144,7 @@ entries:
     version: 2.1.3
   - apiVersion: v2
     appVersion: 1.18.0
-    created: "2024-03-26T16:53:48.505343-04:00"
+    created: "2024-03-28T16:30:18.788819-04:00"
     description: A Helm chart for Kubernetes
     digest: 4ca2390552c5053b5114f2d2c4bad49a9b4f131cc59fd10a610b3daca87399d5
     name: plumber-standalone
@@ -144,7 +154,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-03-26T16:53:48.50493-04:00"
+    created: "2024-03-28T16:30:18.788445-04:00"
     description: A Helm chart for Kubernetes
     digest: 32b7afc3a6dde346c83b3ef6bf2edc0ef830978c9dbb12da8c7dd9ead3600046
     name: plumber-standalone
@@ -152,4 +162,4 @@ entries:
     urls:
     - plumber-standalone-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-26T16:53:48.484705-04:00"
+generated: "2024-03-28T16:30:18.770533-04:00"
